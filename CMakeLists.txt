@@ -17,18 +17,18 @@ set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
 
 
 include_directories(
-    	${CMAKE_SOURCE_DIR}
-    	${CMAKE_SOURCE_DIR}/libusb
-	${CMAKE_SOURCE_DIR}/../systemd/src/libudev/
+        .
+        ./libusb
+#	${CMAKE_SOURCE_DIR}/../systemd/src/libudev/
     )
 
 FILE(GLOB SRC_FILES
-	${CMAKE_SOURCE_DIR}/libusb/*.c
-	${CMAKE_SOURCE_DIR}/libusb/os/linux*.c
-	${CMAKE_SOURCE_DIR}/libusb/os/events_posix.c
-	${CMAKE_SOURCE_DIR}/libusb/os/events_posix.h
-	${CMAKE_SOURCE_DIR}/libusb/os/threads_posix.c
-	${CMAKE_SOURCE_DIR}/libusb/os/threads_posix.h
+        libusb/*.c
+        libusb/os/linux*.c
+        libusb/os/events_posix.c
+        libusb/os/events_posix.h
+        libusb/os/threads_posix.c
+        libusb/os/threads_posix.h
     )
 add_library(${PROJ} SHARED
     ${SRC_FILES}
