@@ -16,11 +16,6 @@ set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
 set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
 
 
-include_directories(
-        .
-        ./libusb
-#	${CMAKE_SOURCE_DIR}/../systemd/src/libudev/
-    )
 
 FILE(GLOB SRC_FILES
         libusb/*.c
@@ -33,4 +28,9 @@ FILE(GLOB SRC_FILES
 add_library(${PROJ} SHARED
     ${SRC_FILES}
   )
+target_include_directories(${PROJ} PRIVATE
+    .
+    ./libusb
+	../systemd/src/libudev/
+    )
 
